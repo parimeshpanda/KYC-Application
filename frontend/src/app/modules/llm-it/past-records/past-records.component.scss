@@ -1,0 +1,84 @@
+@import "../../../../assets/scss/variables.scss";
+@import "../../../../assets/scss/_buttons.scss";
+@import "../../../../assets/scss/_fonts.scss";
+@import "../../../../assets/scss/_colors.scss";
+@import "../../../../assets/scss/_custom.scss";
+
+
+.search-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px 15px 8px 35px;
+    font-size: 14px;
+    border: 1px solid #272727;
+    border-radius: 6px;
+    outline: none;
+    background: #0D0D0E;
+    color:#595D62;
+    font-family: $DMSans;
+    &::placeholder {
+        color: #595D62; // Placeholder color
+      }
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 49%;
+    left: 10px; // Position the icon to the left side inside the input
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #FCFCFC;
+  
+    i {
+      pointer-events: none; // Icon is non-clickable
+    }
+  }
+  
+.table {
+    margin-top: 20px;
+  }
+  .table > :not(caption) > * > * {
+    padding: 10px 24px;
+  }
+  nav {
+    display: flex;
+    justify-content: right;
+    margin-top: 40px;
+    border-top: 1px solid;
+  }
+  
+  .table-dark {
+    border-color: #1C1C1C;
+    --bs-table-bg: #0D0D0E;
+    font-size: 14px;
+    font-family: $MPLUS2;
+    th {
+        font-weight: 400;
+    }
+    .table-dark {
+        --bs-table-bg: #161616;
+    }
+}
+.text-success {
+    color:#7DFF8C;
+  }
+  
+  .text-danger {
+    color: #FF8585;
+  }
+  ::ng-deep .toastClass {
+    z-index: 1911 !important;
+    position: fixed !important;
+    top: 70px !important;
+    right: 30px !important;
+    background-color: red;
+  }
+  ::ng-deep  ul {
+    margin-top: 0;
+    margin-bottom: 0rem !important;
+}
+

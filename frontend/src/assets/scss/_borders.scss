@@ -1,0 +1,60 @@
+@import '_variables.scss';
+.border-radius-top-32 {
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+
+.border-radius-32 {
+  border-radius: 32px;
+}
+ 
+.border-radius-14 {
+  border-radius: 14px;
+}
+.border-radius-16 {
+  border-radius: 16px;
+}
+.border-radius-18 {
+  border-radius: 18px;
+}
+.border-radius-0 {
+  border-radius: 0
+}
+.border-radius-4 {
+  border-radius: 4px !important;
+}
+.border-radius-8 {
+  border-radius: 8px !important;
+}
+.border-radius-10 {
+  border-radius: 10px !important;
+}
+.border-radius-6 {
+  border-radius: 6px;
+}
+.border-radius-5 {
+  border-radius: 5px;
+}
+.border-radius-50 {
+  border-radius: 50%;
+}
+
+
+.border-right-white {
+  border-right: 1px solid rgba(255,255,255,.3)
+}
+.border-bottom-white {
+  border-bottom: 1px solid rgba(255,255,255,.3)
+}
+.border-top-white {
+  border-top: 1px solid rgba(255,255,255,.3)
+}
+.border-left-white {
+  border-left: 1px solid rgba(255,255,255,.3)
+}
+.border-right-black {
+  border-right: 1px solid #222128
+}
+.border-dash {
+  border: 1px dashed $white
+}

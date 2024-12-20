@@ -1,0 +1,183 @@
+<div class="d-flex video-container">
+    <video autoplay [muted]="true" loop class="background-video ">
+        <source src="{{baseurl}}assets/video/background-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay"></div>
+    <!-- Vertical Stepper -->
+     <div class="d-flex w-100">
+    <div class="stepper px-5 pb-3">
+      <div
+        *ngFor="let thread of stepsData; let i = index"
+        class="stepper-item"
+        [class.completed]="thread.completed"
+        [class.active]="thread.id === activeThreadId"
+       
+      >
+        <!-- Icon for Each Stepper -->
+        <div class="icon">
+          <i *ngIf="thread.icon == 'step1' && !thread.completed" class="fa-solid fa-globe"></i>
+          <i *ngIf="thread.icon == 'step2' && !thread.completed" class="fa-solid fa-user-tie"></i>
+          <i *ngIf="thread.icon == 'step3' && !thread.completed"  class="fa-solid fa-file-lines"></i>
+          <i *ngIf="thread.icon == 'step4' && !thread.completed" class="fa-solid fa-database"></i>
+          <i *ngIf="thread.icon == 'step5' && !thread.completed"  class="fa-solid fa-loader"></i>
+          <i *ngIf="thread.completed" class="fa-solid fa-circle-check"></i>
+        </div>
+  
+        <!-- Thread Name -->
+        <div class="label ps-4 QuattrocentoSans">{{ thread.name }}</div>
+  
+        <!-- Connecting Line -->
+        <div
+          *ngIf="i < stepsData.length - 1"
+          class="line"
+          [class.completed]="thread.completed"
+        ></div>
+      </div>
+    </div>
+  
+    <!-- Question-Answer Block -->
+    <div style="margin-top:70px" class="qa-container px-5 d-flex flex-column flex-grow-1 justify-content-between " [ngClass]="((currentQuestions?.result?.conversation_type =='review') || (currentQuestions?.result?.conversation_type =='Pass') || (currentQuestions?.result?.conversation_type =='Fail')) ? 'bg-6' : 'bg-' + activeThreadId">
+    <div class="background-overlay" [ngClass]="animationClass" (animationend)="resetAnimation()"></div>
+       <div class="flex-grow-1" >
+      <div class="qa-thread mt-4" >
+        <div *ngIf="(currentQuestions?.result?.conversation_type !=='review') && (currentQuestions?.result?.conversation_type !=='Pass') && (currentQuestions?.result?.conversation_type !=='Fail')" class="font-size-16 QuattrocentoSans color-grey-9">{{stepName}}</div>
+      </div>
+      
+    
+
+      <div *ngIf="currentQuestions?.result" class="qa-input">
+       <div *ngIf="(currentQuestions?.result) && (currentQuestions?.result?.conversation_type !=='review') && (currentQuestions?.result?.conversation_type !=='Fail') && (currentQuestions?.result?.conversation_type !=='Pass')" class="typing-text MPLUS2 font-size-24">
+        <markdown [data]="typingText"></markdown>
+      </div>
+        <div *ngIf="currentQuestions.result?.conversation_type =='upload'; else updatelayout">
+          <div *ngIf="showFileUpload" class="d-flex uploadfile-con h-100 mb-3 flex-column" (dragover)="onDragOver($event)"
+          (drop)="onDrop($event)">
+            <div class="col-6">
+              <div class="d-flex justify-content-center align-items-center" style="background: #00000066;
+    border-radius: 8px;">
+          <div class=" p-4 selectFileBox justify-content-center align-items-center">
+            <div class="d-flex align-items-center flex-column py-2">
+              <i class="fa-solid fa-file-arrow-up cursor-pointer font-size-30 color-grey-16 pb-1" (click)="fileInput.click()"></i>
+              <div class="ps-2">
+                <div style="line-height: 32px;" class="font-size-16 color-white">Drag and drop or <a href="javascript:void(0)" class="color-blue-2" (click)="fileInput.click()">Choose File</a></div>
+                <div class="font-size-14 color-red-2" *ngIf="file.length == 0 && showError">*Please upload a file. </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <h4 class="mb-0">
+                    <input  type="file" type="file" accept=".pdf, .gif, .tiff, .tif, .jpg, .jpeg, .png, .bmp, .webp"
+                     (click)="fileInput.value = ''" #fileInput (change)="onFileChange($event)" style="display:none">
+                  </h4>
+                </div>
+                <div class="d-flex align-items-center fileNeme-content">
+                  <div title="{{file[0].name}}" *ngIf="file.length !== 0 && !showError" class="color-grey-9 font-size-12 file-name">{{file ? file[0].name : ''}}</div>
+                  <i *ngIf="file.length !== 0 && !showError" class="fa-solid fa-xmark font-size-14 cursor-pointer ps-2 color-red-1 pt-1" (click)="removeFile()"></i>
+                </div>
+
+                
+              </div>
+            </div>
+         </div>
+        </div>
+        </div>
+
+        <div class="mt-4">
+          <button class="btn btn-grey-2 Nunito" (click)="uploadFile()">NEXT <i class="ps-3 fa-regular fa-arrow-right-long"></i></button>
+        </div>
+        </div>
+
+        </div>
+        
+        <ng-template #defaultInput>
+        <div class="textarea-container" *ngIf="currentQuestions?.result">
+        <textarea #answerInput class="font-size-20 QuattrocentoSans color-grey-8"
+          [(ngModel)]="currentAnswer"
+          placeholder="Type Your Response Here"
+          (keydown.enter)="submitAnswer($event)"
+        ></textarea>
+        <span class="blinking-cursor">__</span>
+      </div>
+
+      <div class="d-flex align-items-center mt-2 color-grey-15 font-size-12">
+        <div class="QuattrocentoSans">Press</div>
+        <div class="btn btn-enter mx-2 font-size-12 QuattrocentoSans color-white" >Enter</div>
+        <div class="QuattrocentoSans">to submit</div>
+      </div>
+      </ng-template>
+      
+      <ng-template #updatelayout>
+        <div *ngIf="(currentQuestions.result?.conversation_type =='review') || (currentQuestions.result?.conversation_type =='Fail') || (currentQuestions.result?.conversation_type =='Pass'); else defaultInput">
+          <!-- Layout 2 -->
+          <div *ngIf="(currentQuestions.result?.conversation_type =='review') && !showConfirmLoader">
+            <div class="d-flex flex-grow-1 flex-column">
+              <div class="pb-3" style="min-height: calc(100vh - 265px)">
+                <div class="d-flex align-items-center justify-content-between mt-4">
+                  <div class="font-size-26 MPlus2 color-white ps-3"><span>Review your Application</span></div>
+                  <div class="btn btn-grey-1 MPlus2 px-3" style="height:32px" (click)="loadThreadQuestions(true) ">Confirm & Continue</div>
+                </div>
+                <div class="color-grey-18 font-size-16 MPlus2 mb-5 ps-3 mt-2">Check the information filled below</div>
+        
+                <div>
+                  <div class="font-size-16 mb-4 pb-4 px-3" style="border-bottom: 1px solid #414141"
+                    *ngFor="let result of reviewData">
+                    <div>
+                      <div class="color-white d-flex align-items-start mb-2">
+                        <div class="color-white conversation me-3 font-bold mt-1" style="padding-left:3px">Q
+                        </div>
+                        <markdown [data]="result.ai_question"></markdown>
+                      </div>
+                      <div class="color-grey-14 d-flex align-items-start">
+                        <div class="conversation me-3 font-bold mt-1" *ngIf="result.human_answer">
+                          A
+                        </div>
+                        <div>{{ result.human_answer }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-center flex-column" *ngIf="showConfirmLoader">
+            <div class="color-white font-size-26 MPlus2 mb-3 mt-5">eKYC Application Process Status</div>
+            <div class="color-grey-18 font-size-16 MPlus2 mb-5 ps-3">Please wait while we are processing your KYC request</div>
+            <div class="spinner"></div>
+        </div>
+
+          <div *ngIf="(currentQuestions.result?.conversation_type =='Fail') || (currentQuestions.result?.conversation_type =='Pass')">
+            <div class="d-flex flex-grow-1 flex-column">
+              <div class="pb-3" style="min-height: calc(100vh - 265px)">
+                <div class="d-flex align-items-center justify-content-center">
+            
+            <div *ngIf="showResult" class="text-center w-75">
+              <div class="font-size-26 MPlus2 color-white mb-5 mt-4">{{currentQuestions.result?.ai_question}}</div>
+              <div>
+              <img class="py-4" width="80" *ngIf="currentQuestions.result?.conversation_type =='Fail'" src="{{baseurl}}assets/images/failKyc.gif" />
+              <img *ngIf="currentQuestions.result?.conversation_type =='Pass'" src="{{baseurl}}assets/images/success.gif" />
+            </div>
+              <div class="btn btn-grey-3 MPlus2 mt-5 mb-4" style="height:48px;" (click)="navgateToExplanation(threadId.thread_id, currentQuestions.result?.comparator_state.kyc_type)">Explanation <span class="ps-2"><i class="fa-regular fa-arrow-right"></i></span></div>
+
+            </div>
+            
+
+          </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+      </div>
+    </div>
+      <div class="d-flex justify-content-center">
+        <div class="text-center color-white Nunito font-size-14 w-100 pb-2">
+          Copyright ©2024 Genpact. All rights reserved.
+      </div>
+     
+        
+      </div>
+    </div>
+</div>
+  </div>
+  

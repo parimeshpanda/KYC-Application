@@ -1,0 +1,52 @@
+@import '../../../assets/scss/variables.scss';
+@import '../../../assets/scss/_buttons.scss';
+@import '../../../assets/scss/_fonts.scss';
+@import '../../../assets/scss/_colors.scss';
+@import '../../../assets/scss/_custom.scss';
+
+.header-component-container {
+  min-height: 70px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99999;
+  border-bottom: 1px solid #2C2C2C !important;
+
+  .user-info-section {
+
+    .user {
+      border-radius: 50%;
+      border: 1px solid #595D62;
+      font-family: $font-family-gilroy-light;
+      height: 40px;
+      width: 40px;
+      color: $white;
+    }
+  }
+
+}
+
+.user-color {
+  background: linear-gradient(90deg, #FFBCBC 0%, #B3E1FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.btn.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+::ng-deep .toastClass {
+  z-index: 1911 !important;
+  position: fixed !important;
+  top: 70px !important;
+  right: 30px !important;
+  background-color: red;
+}

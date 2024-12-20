@@ -1,0 +1,384 @@
+@import "../../../../assets/scss/variables.scss";
+@import "../../../../assets/scss/_buttons.scss";
+@import "../../../../assets/scss/_fonts.scss";
+@import "../../../../assets/scss/_colors.scss";
+@import "../../../../assets/scss/_custom.scss";
+
+/* Stepper */
+.stepper {
+  width: 400px;
+  margin-top: 70px;
+  padding-top: 50px;
+  padding-bottom: 15px;
+  overflow-y: auto;
+  z-index: 1;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+
+  .stepper-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+    position: relative;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(#292936, #222334) padding-box, linear-gradient(333.43deg, rgba(58, 74, 106, 1) 11.74%, #1a1a1c 89.39%) border-box;
+      border: 2px solid transparent; /* Reserve space for the border with transparency */
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      color: #fff;
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .label {
+      font-size: 16px;
+      text-align: left;
+      transition: color 0.3s ease;
+      max-width: 225px;
+      background: linear-gradient(186.08deg, #FFDCDC 5.67%, #D1EDFF 86.01%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .line {
+      position: absolute;
+      width: 2px;
+      height: 50px;
+      background-color: rgba(58, 74, 106, 1);
+      top: 46px;
+      left: 21px;
+      z-index: 0;
+
+      &.completed {
+        border: 1px solid rgba(202, 69, 61, 1);
+      }
+    }
+
+    &.completed .icon {
+      border: 2px solid transparent; /* Transparent border to show the gradient */
+      border-radius: 5px; /* Apply the rounded corners */
+      background: linear-gradient(#362929, #392727) padding-box, linear-gradient(333.43deg, #D32E28 11.74%, #AF8E80 89.39%) border-box; 
+      color: rgba(201, 112, 109, 1) ; 
+    }
+
+    &.completed .label {
+      background: linear-gradient(93.66deg, #FFEAE4 6.46%, #FF9C89 70.74%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    &.active .icon {
+      position: relative;
+      border: 2px solid transparent; /* Transparent border to show the gradient */
+      border-radius: 5px; /* Apply the rounded corners */
+      background: linear-gradient(#362929, #392727) padding-box, linear-gradient(333.43deg, #D32E28 11.74%, #AF8E80 89.39%) border-box; 
+      color: rgba(201, 112, 109, 1) ; 
+}
+
+    &.active .label {
+      background: rgba(255, 234, 227, 1);
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}
+
+/* Question-Answer Block */
+.qa-container {
+  width: 70%;
+  transition: background-image 0.9s ease-in-out;
+  padding: 20px;
+  z-index: 1;
+  background: rgba(13, 13, 14, 1);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  &.bg-1 {
+    background-image: url('../../../../assets/images/step-1.png');
+  }
+
+  &.bg-2 {
+    background-image: url('../../../../assets/images/step-2.png');
+  }
+
+  &.bg-3 {
+    background-image: url('../../../../assets/images/step-3.png');
+  }
+
+  &.bg-4 {
+    background-image: url('../../../../assets/images/step-4.png');
+  }
+  .qa-thread {
+    margin-bottom: 20px;
+
+    p {
+      margin: 10px 0;
+    }
+  }
+
+  .qa-input {
+    textarea {
+      width: 100%;
+      resize: none;
+      background: none;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #FFBCBC 0%, #B3E1FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; // Full viewport height
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); // Black with 50% opacity
+  z-index: 0; // Between the video and content
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1; // Place content over the video
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.typing {
+  width: 0; /* Start with no width to simulate typing */
+  overflow: hidden; 
+  white-space: nowrap; /* Keep text in one line */
+  border-right: 2px solid #7E2EA0; 
+  font-family: "Quattrocento Sans", sans-serif;
+  font-size: 1.5rem; 
+  animation: typing 3s steps(20, end), cursor-blink 0.6s step-end infinite alternate;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; } /* Start with no width */
+  to { width: 473px; } /* Adjust width to fit your text */
+}
+
+/* Blinking cursor animation */
+@keyframes cursor-blink {
+  0%, 100% { border-color: #7E2EA0; } /* Visible cursor */
+  50% { border-color: transparent; } /* Blinking effect */
+}
+
+/* Ensure the cursor stops animating after typing */
+.typing.done {
+  animation: none; /* Stop all animations */
+  border-right: 2px solid transparent; /* Hide the cursor */
+  animation: cursor-blink 0.6s step-end infinite alternate; /* Restart only the cursor blink */
+}
+
+.typing-text {
+  font-weight: 400;
+  color: #ffffff;
+  white-space: pre-wrap;
+  overflow: hidden;
+  line-height: 36px;
+  animation: blinkCursor 0.8s steps(2) infinite;
+}
+
+@keyframes blinkCursor {
+  0% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+}
+.btn-enter {
+  background: linear-gradient(#161616, #181818) padding-box, linear-gradient(1.43deg, rgb(58 61 65) 11.74%, #080808 89.39%) border-box;
+    height: 25px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: default;
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none !important;
+      box-shadow: none !important;
+      transform: scale(1); 
+    }
+}
+.textarea-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  textarea {
+    /* Hide the blinking cursor when textarea is focused */
+    &:focus + .blinking-cursor {
+      display: none;
+    }
+  }
+
+  .blinking-cursor {
+    position: absolute;
+    top: 7px; /* Align to the placeholder text */
+    left: calc(130px + 100px); /* Adjust based on padding and placeholder text length */
+    font-size: 16px;
+    color: #aaa;
+    animation: blink 1s steps(2, start) infinite;
+    pointer-events: none; /* Prevent interaction */
+  }
+}
+
+/* Keyframes for blinking effect */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.upload-file-container{
+ 
+  .selectFileBox {
+      background: $white 0% 0% no-repeat padding-box;
+      box-shadow: 0px 0px 70px #00000029;
+      border-radius: 19px;
+      opacity: 1;
+    } 
+    .file-name {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 235px;
+      white-space: nowrap;
+    }
+    .fileNeme-content{
+      height: 50px;
+    }
+}
+
+.qa-container {
+  position: relative;
+  overflow: auto;
+
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease-in-out;
+
+    &.bg-1 {
+      background-image: url('../../../../assets/images/step-1.png');
+    }
+
+    &.bg-2 {
+      background-image: url('../../../../assets/images/step-2.png');
+    }
+
+    &.bg-3 {
+      background-image: url('../../../../assets/images/step-3.png');
+    }
+
+    &.bg-4 {
+      background-image: url('../../../../assets/images/step-4.png');
+    }
+  }
+
+  .qa-thread {
+    position: relative;
+    z-index: 1; // Ensures content appears above the background
+  }
+}
+
+.conversation {
+  padding: 0px 0px 0px 5px;
+  background: #A2A2A2;
+  color: #000;
+  border-radius: 3px;
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  line-height: 1.1;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side,#ffffff 94%,#0000) top/9px 9px no-repeat,
+         conic-gradient(#0000 30%,#ffffff);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+     transform: rotate(1turn);
+  }
+}
+::ng-deep .toastClass {
+  z-index: 1911 !important;
+  position: fixed !important;
+  top: 70px !important;
+  right: 30px !important;
+  background-color: red;
+}
+::ng-deep p {
+  margin-top: 0;
+  margin-block-start: 0em;
+  margin-bottom: 0rem !important;
+}
+::ng-deep ul {
+    line-height: 1.2;
+    margin-block-start: 0em;
+    margin-bottom: 0em;
+}

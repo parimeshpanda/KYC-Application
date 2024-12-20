@@ -1,0 +1,98 @@
+<div #landingContainer class="landing-component d-flex flex-column h-100 w-100 " style="padding-top: 70px;">
+  <div class="landing-component__content w-100 d-flex flex-grow-1">
+
+    <div class="col-12 d-flex flex-column h-100">
+      <ng-container  *ngIf="!showBig">
+        <div>
+          <div
+            class="header-2 line-height-72 font-size-81 pb-4 Rokkitt gradient-text font-bold pt-5 pb-5 text-center mt-4">
+            Know Your Customer
+          </div>
+        </div>
+        <div class="d-flex flex-grow-1 position-relative">
+          <div class="col-7 position-relative video-con">
+            <video autoplay [muted]="true" loop id="myVideo" class="back-video">
+              <source src="{{baseurl}}assets/video/background-video.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="blur-layer"></div>
+          </div>
+          <div class="col-5 bg-black px-5">
+            <div class="gradient-text-2 font-size-27 MPLUS2 pb-3 font-bold">
+              Streamline your KYC process with Agentic AI
+            </div>
+            <div class="Nunito pb-3 color-white font-size-18">
+              <div class="">Our LLM-integrated toolset securely gathers required information and documents through
+                natural conversation, validates them against regional regulations, and automatically determines KYC
+                completion status for individuals and organizations.</div>
+            </div>
+
+            <div class="Nunito color-red-1 font-size-18 cursor-pointer" (click)="exploreView();">Click to explore <i
+                class="fa-solid fa-angles-right ps-2"></i></div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="showBig">
+        <div class="content-container col-12 h-100">
+          <div class="d-flex flex-grow-1 position-relative flex-column">
+            <div class="w-100" style="height: 200px;background-color: black;"></div>
+            <div class="col-sm-12 position-relative video-con">
+              <video class="full-video" autoplay [muted]="true" loop id="myVideo" style="width:100%">
+                <source src="{{baseurl}}assets/video/background-video.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+          
+            </div>
+
+          </div>
+        </div>
+
+      </ng-container>
+
+      <div class="d-flex  align-items-center justify-content-center"
+        [ngClass]="{'align-items-end' : !showBig}">
+        <div style="background-color: black;" *ngIf="!showBig"
+          class="text-center color-white Nunito font-size-14 w-100 py-4">
+          Copyright ©2024 Genpact. All rights reserved.
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+<ng-template #modalTemplate let-modal>
+  <div class="modal-body p-5 pt-2">
+    <div class="text-center Nunito color-white">
+      <div class="font-size-27 font-boldest pb-4 pt-4 MPLUS2 gradient-text">Welcome to e-KYC process!</div>
+      <div class="pb-3">Disclaimer:</div>
+      <p class="pb-3">Our Agentic KYC application leverages the power of AI to streamline the identity verification
+        process. While AI offers significant advantages in terms of efficiency and accuracy, it's essential to remember
+        that human judgment remains indispensable.
+        Errors can occasionally occur, even in AI-driven systems. Additionally, biases may inadvertently be introduced
+        from the data used to train these models. We are committed to minimizing such risks through rigorous testing and
+        ongoing refinement.
+      </p>
+      <p class="pb-4">Data privacy is a paramount concern. We employ robust security measures to safeguard your personal
+        information and prevent unauthorized access. By using our application, you acknowledge that you have read and
+        understood this disclaimer and consent to our terms of service.
+        Ultimately, the successful application of AI in identity verification hinges on a collaborative approach that
+        combines the strengths of both human expertise and technological innovation.</p>
+      <div class="d-flex flex-column align-items-center">
+        <div class="btn btn-grey mb-4 font-size-16 DMSans" style="width: 110px;" (click)="agree();modal.dismiss();">I
+          AGREE</div>
+        <div class="btn btn-transparent mb-3 color-grey-7 font-size-16 font-bold Nunito"
+          (click)="decline();modal.dismiss();">DECLINE</div>
+      </div>
+    </div>
+  </div>
+</ng-template>

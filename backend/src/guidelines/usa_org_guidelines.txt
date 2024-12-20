@@ -1,0 +1,49 @@
+These are the KYC requirements for Private Limited organizations:
+
+The Organization Type must be Private Limited Company OR Private Organisation OR Private Company
+
+Banking Institution Location:
+
+The institution must be located within the United States.
+
+Organization Identification:
+
+The name of the organization must be provided clearly.
+
+Certificate of Incorporation:
+
+The Certificate of Incorporation must be uploaded and the issue date must be entered by the applicant.
+ONLY THE ISSUE DATE is Required from the certificate of incorporation
+
+Business License Information:
+
+Once the business license is uploaded, The business license number along with its issue date and expiry date must be entered by the applicant.
+
+Board Members Information:
+
+Number of board members must be specified.
+Full legal names of each board member must be present.
+
+Identification Verification:
+For EACH board member, choose one of the following for verification:
+If Passport:
+Enter the passport number.
+Provide the issue date of the passport.
+Provide the expiry date of the passport.
+Place of birth must be mentioned.
+
+If SSN:
+The complete Social Security number must be entered by the applicant.
+
+Document Required:
+Upload the Certificate of Incorporation AND Upload the Government-issued Business License.
+
+For each board member, upload the chosen ID document (Passport OR SSN card).
+
+If Organisation is detected as financially risky, Then following details must be present:
+1. Annual Revenue of the company.
+2. Politically Exposed Employees(If there are any, Yes/No is sufficient).
+3. Last Quarter Dividends.
+
+Ensure that all documents uploaded are current, valid, and have not expired.
+Protect the privacy of the board members by ensuring that their personal information is transmitted securely.

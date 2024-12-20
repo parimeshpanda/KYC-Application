@@ -1,0 +1,91 @@
+@import "_variables.scss";
+.color-black{
+  color: $black;
+}
+.color-white {
+  color: $white;
+}
+.background-white {
+  background-color: $white !important;
+}
+.background-black {
+  background-color: $black !important;
+}
+.background-transparent {
+  background: transparent;
+}
+.background-gridient {
+  background: radial-gradient(49.08% 49.08% at 50% 50.05%, #5E1313 0%, #000000 100%);
+}
+.color-grey-1 {
+  color: $color-grey-1
+}
+.color-grey-2 {
+  color: $color-grey-2
+}
+.color-grey-3 {
+  color: $color-grey-3
+}
+.color-grey-7 {
+  color: $color-grey-7;
+}
+.color-grey-8 {
+  color: $color-grey-8;
+}
+.color-grey-9 {
+  color: $color-grey-9;
+}
+.color-grey-10 {
+  color: $color-grey-10;
+}
+.color-grey-11{
+  color: $color-grey-11;
+}
+.color-grey-12 {
+  color: $color-grey-12;
+}
+.color-grey-14 {
+  color: $color-grey-14;
+}
+.color-grey-15 {
+  color: $color-grey-15;
+}
+.color-grey-16 {
+  color: $color-grey-16;
+}
+.color-grey-17 {
+  color: $color-grey-17;
+}
+.color-grey-18 {
+  color: $color-grey-18;
+}
+.color-orange-1 {
+  color: $color-orange-1
+}
+
+.color-red {
+  color: #dc3545
+}
+.color-red-1 {
+color: $color-red-1;
+}
+.color-red-2{
+  color: $color-red-2;
+}
+.color-red-3{
+  color: $color-red-3;
+}
+
+.color-blue-1{
+  color: $color-blue-1;
+}
+.color-blue-2{
+  color: $color-blue-2;
+}
+.color-blue-3{
+  color: $color-blue-3;
+}
+
+.color-green-1{
+  color: $color-green-1;
+}

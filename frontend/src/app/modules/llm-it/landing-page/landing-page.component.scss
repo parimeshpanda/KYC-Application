@@ -1,0 +1,72 @@
+@import '../../../../assets/scss/variables.scss';
+@import '../../../../assets/scss/_buttons.scss';
+@import '../../../../assets/scss/_fonts.scss';
+@import '../../../../assets/scss/_colors.scss';
+@import '../../../../assets/scss/_custom.scss';
+
+
+
+.landing-component {
+  
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100vh;
+   .video-con {
+    mask-image: linear-gradient(to top, black 80%, transparent 100%);
+    .back-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       }
+    
+   }
+   .gradient-text {
+    background: linear-gradient(90deg, #FFBCBC 0%, #B3E1FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  .gradient-text-2 {
+    background: linear-gradient(90deg, #FFDBDB 0%, #AEDFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    line-height: 40px;
+  }
+  .gradient-text-3 {
+    background: linear-gradient(90deg, #FFDBDB 0%, #AEDFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  .blur-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 200px; 
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 9));
+    pointer-events: none;
+  }
+  .blur-layer-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99), transparent);
+    pointer-events: none; 
+  }
+  .btn-agree {
+    background: #E5E5E51A
+  }
+}
+
+

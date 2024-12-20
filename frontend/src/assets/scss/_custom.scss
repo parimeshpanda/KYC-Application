@@ -1,0 +1,465 @@
+@import "_variables.scss";
+
+// cursor
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.cursor-scroll {
+  cursor: all-scroll;
+}
+
+.cursor-not {
+  cursor: not-allowed !important;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed !important;
+}
+
+.transition-all {
+  transition: all 0.5s;
+}
+//opacity
+.opacity-8 {
+  opacity: 0.8;
+}
+
+.opacity-7 {
+  opacity: 0.7;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+}
+
+.opacity-4-8 {
+  opacity: 0.48;
+}
+
+.opacity-2 {
+  opacity: 0.2;
+}
+
+.opacity-3 {
+  opacity: 0.3;
+}
+
+.opacity-2-4 {
+  opacity: 0.24;
+}
+
+.opacity-1 {
+  opacity: 0.1;
+}
+
+.padding-5 {
+  padding-right: 5rem;
+  padding-left: 5rem;
+}
+
+
+.break-word {
+  word-break: break-word;
+}
+
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+
+}
+
+/* The container */
+.radio-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 27px;
+  margin-bottom: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  left:0;
+  top:0
+}
+
+/* Create a custom radio button */
+.radio-container  .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: $white;
+  border-radius: 50%;
+}
+
+
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  background: linear-gradient(90deg, $color-orange 0%, $color-orange-1 100%);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+  top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+/* The checkbox-container */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: fit-content;
+}
+
+
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-container .checkmark {
+  position: absolute;
+  left: 10px;
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #fff
+}
+
+.checkbox-container--1  .checkmark{ 
+  height:20px;
+  width: 20px;
+  .not-checked {
+
+    height: 12px;
+    width: 12px;
+    background: linear-gradient(90deg, #FE1F4B 0%, #FE742A 100%);
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    border-radius: 2px;
+  }
+}
+
+
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked~.checkmark {
+  background: linear-gradient(90deg, $color-orange 0%, $color-orange-1 100%);
+  border:0
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked~.checkmark {
+  background: linear-gradient(90deg, $color-orange 0%, $color-orange-1 100%);
+  border:0
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+// .checkmark:after {
+//   content: "";
+//   position: absolute;
+//   display: none;
+// }
+
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked~.checkmark:after {
+  display: block;
+  left:5px
+}
+.checkbox-container--1 input:checked~.checkmark:after {
+  display: block;
+  left:7px;
+  height: 14px;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+ 
+}
+
+.checkbox-container--1 .checkmark:after {
+ 
+}
+
+
+
+
+.Regular {
+  font-weight: normal;
+}
+
+.light {
+  font-weight: lighter;
+}
+
+.medium {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.boldest {
+  font-weight: bolder;
+}
+
+.boldStatus {
+  font-weight: bolder;
+}
+
+.OpenSans {
+  font-family: 'Open Sans';
+}
+
+.Arial {
+  font-family: 'Arial';
+}
+
+.Helvetica {
+  font-family: 'Helvetica';
+}
+
+.TimesNewRoman {
+  font-family: 'Times New Roman';
+}
+
+.Calibri {
+  font-family: 'Calibri';
+}
+
+.Courier {
+  font-family: 'Courier';
+}
+
+.Roboto {
+  font-family: 'Roboto';
+}
+
+.Palatino {
+  font-family: 'Palatino';
+}
+
+.italicStatus {
+  font-style: italic;
+}
+
+.underlineStatus {
+  text-decoration: underline;
+}
+
+.formatMiddleStatus {
+  text-align: center !important;
+}
+
+.formatLeftStatus {
+  text-align: left !important;
+}
+
+.formatRightStatus {
+  text-align: right !important;
+}
+
+.dropper-cursor {
+  cursor: url(data:image/x-icon;base64,AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAD///8BAAAAfwAAAIH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BAAAAcQAAAN8AAADTAAAArwAAAE8AAAAJ////Af///wH///8B////Af///wH///8B////Af///wH///8B////AQAAAJEAAADLAAAAEwAAAHsAAADDAAAA3wAAADP///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BAAAAuQAAAHX///8B////AQAAAF0AAADtAAAAOf///wH///8B////Af///wH///8B////Af///wH///8B////AQAAAFMAAAC/////Af///wH///8BAAAAUQAAAO0AAAA5////Af///wH///8B////Af///wH///8B////Af///wEAAAANAAAA5wAAAFH///8B////Af///wEAAABRAAAA7QAAADn///8B////Af///wH///8B////Af///wH///8B////AQAAAD0AAADtAAAARf///wH///8B////AQAAAFEAAADtAAAAOQAAACP///8B////Af///wH///8B////Af///wH///8BAAAARQAAAO0AAABF////Af///wH///8BAAAAUQAAAO0AAADvAAAAmf///wH///8B////Af///wH///8B////Af///wEAAABFAAAA7QAAAEX///8B////AQAAADUAAADxAAAA/wAAAPcAAAAr////Af///wH///8B////Af///wH///8B////AQAAAEUAAADtAAAARQAAADUAAADvAAAA/wAAAPcAAABFAAAALf///wH///8B////Af///wH///8B////Af///wH///8BAAAARQAAAO0AAADvAAAA/wAAAPcAAABFAAAAgwAAAPsAAABX////Af///wH///8B////Af///wH///8B////AQAAACUAAADvAAAA/wAAAPcAAABFAAAAgwAAAP8AAAD/AAAA+wAAAE////8B////Af///wH///8B////Af///wEAAAADAAAAoQAAAPcAAABFAAAAgwAAAP8AAAD/AAAA/wAAAP8AAADf////Af///wH///8B////Af///wH///8B////AQAAAAMAAAAvAAAALQAAAPsAAAD/AAAA/wAAAP8AAAD/AAAA+////wH///8B////Af///wH///8B////Af///wH///8B////Af///wEAAABXAAAA+wAAAP8AAAD/AAAA/wAAALX///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////AQAAAE8AAADfAAAA+wAAALUAAAAXAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//w==), default;
+}
+
+.line-height-72 {
+  line-height: 72px;
+}
+
+.overlay-back {
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  left: 0;
+
+}
+.video_con {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(calc((100% - 100vw) / 2));
+  }
+}
+
+.searchbar {
+  border-radius: 30px;
+  color: $color-grey-3;
+  border: 0.125rem;
+  height: 50px;
+  background: rgba(255,255,255,.30);
+
+  ::placeholder {
+    color:$white;
+    font-family: $font-family-gilroy-light
+
+  }
+
+  .form-control:focus {
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .form-control {
+    border: none;
+    background-color: transparent;
+  }
+
+  .search-icon {
+    top: 17px;
+    right: 24px
+  }
+
+  /* clears the ‘X’ from Internet Explorer */
+  input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* clears the ‘X’ from Chrome */
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
+//min-height
+
+.min-h-100 {
+  min-height: 100px;
+
+}
+
+.min-h-120 {
+  min-height: 120px;
+
+}
+.min-h-75 {
+  min-height:75px;
+
+}
+
+.h-40 {
+height: 40px;
+}
+
+.h-38 {
+  height: 38px;
+  }
+
+  .h-55 {
+    height: 55px;
+    }
+
+//padding
+.padding-right-left-7 {
+  padding: 0 7rem 0 7rem
+}
+.padding-right-left-3  {
+  padding: 0 3rem 0 3rem
+}
+
+
+.padding-right-left-5  {
+  padding: 0 5rem 0 5rem
+}
+.w-450 {
+  min-width: 450px
+}

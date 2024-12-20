@@ -1,0 +1,27 @@
+These are the KYC requirements for Individual users:
+Here are some of the rules you need to abide to:
+1. Identity Verification: Valid government-issued ID required (Passport or SSN).
+2. Date of Birth Verification: Typically verified through the ID provided (If passport chosen).
+3. Address Verification: Place of birth is needed (If passport chosen).
+4. Social security Number: Required for U.S. citizens or residents (If Passport details not provided then Social security card).
+
+Required Documentation:
+Passport.
+OR
+Social Security Card.
+
+Basic Requirements:
+1. The individual must provide a valid, government-issued photo ID. Acceptable forms include a passport, driver’s license, or Social Security card.
+2. Verification of the individual’s First name, Last name, date of birth, typically through the information provided for identity verification.
+3. The individual must provide a proof of address, which must include the place of birth. To be done if the passport is uploaded.
+4. If passport number is present, then the passport issue date and expiry date must be present and the social security number is not required.
+5. If the passport number is not present, then the social security number is required.
+6. If the person is Politically exposed, then the user bank account number and credit score MUST be present.
+
+Documentation and Record Retention:
+Validity and Retention of Documentation: Documentation must be kept up to date and retained for five years after the account is closed.
+
+Compliance and Penalties:
+1. Regular audits and examinations by FinCEN.
+2. Mandatory reporting requirements, with compliance checks typically every 12 to 18 months.
+3. As the date of KYC approval of the user the KYC will have further more requirements if the KYC of the user needs to be updated.

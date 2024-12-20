@@ -1,0 +1,52 @@
+version: '3.8'  
+  
+services:  
+  redis:  
+    restart: unless-stopped  
+    image: redis:7.0.5-alpine  
+    container_name: redis_container  
+    expose:  
+      - "6379"  
+    volumes:
+      - redis_data:/var/lib/redis/data
+  
+  pgdb:  
+    image: postgres:14  
+    container_name: postgres_container  
+    environment:  
+      POSTGRES_USER: 'postgres'  
+      POSTGRES_PASSWORD: 'root'  
+      POSTGRES_DB: 'LLM-IT'  
+    volumes:  
+      - pg_data:/var/lib/postgresql/data  
+      - ./db/llmt_schema.sql:/docker-entrypoint-initdb.d/llmt_schema.sql  
+    ports:  
+      - "5432:5432" 
+    restart: always 
+  
+  application:  
+    image: testbackend:v1
+    build:  
+      context: ./backend  
+      dockerfile: Dockerfile  
+    depends_on:  
+      - redis  
+      - pgdb  
+    restart: always  
+    ports:  
+      - "8000:8000"  
+   
+  
+  frontend:  
+    image: testfrontend:v1
+    build:  
+      context: ./frontend  
+      dockerfile: Dockerfile  
+    ports:  
+      - "4200:4200"  
+    depends_on:  
+      - application  
+  
+volumes:  
+  pg_data:  
+  redis_data:

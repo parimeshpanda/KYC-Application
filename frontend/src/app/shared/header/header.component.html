@@ -1,0 +1,77 @@
+<div class="header-component-container padding-right-left-3 border-bottom bg-black">
+  <div>
+    <img class="img-fluid" [ngClass]="(router.url === '/' || router.url === '/home') ? '' : 'cursor-pointer'" src="assets/images/genpactLogoWhite.svg" alt="Genpact Logo" width="120"
+      (click)="navigateToHome()" />
+  </div>
+  <div>
+    <div class="d-flex h-100 align-items-center">
+
+      <div class="my-2 me-4" >
+        <div class="d-flex align-items-center h-100 color-white text-center break-word  px-3">
+          <!-- <div class="pe-3" *ngIf="router.url.includes('home')">Time Left: {{ formattedTime$ | async }}</div> -->
+          <div style="border-color:#595D62" class="btn btn-black DMSans font-boldest color-grey-17 me-3" *ngIf="router.url.includes('home') || router.url.includes('detail-view') || router.url.includes('explanation') || router.url.includes('past-records')" (click)="confirmPopUp()"
+          [class.disabled]="isPopupOpen"
+  [attr.disabled]="isPopupOpen ? true : null">Start New KYC</div>
+          <div [class.disabled]="router.url.includes('past-records')" style="border-color:#595D62" class="btn btn-black DMSans font-boldest color-grey-17" *ngIf="router.url.includes('home') || router.url.includes('detail-view') || router.url.includes('explanation') || router.url.includes('past-records')" (click)="navigateToPastRecords()">Past Records</div>
+        </div>
+    
+      </div>
+
+      <ng-container *ngTemplateOutlet="userInfo"></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #userInfo>
+  <div (click)="openPop(p1)" class="position-relative user-info-section">
+    <div class="d-flex align-items-center">
+
+      <div [ngbPopover]="popContent" #p1="ngbPopover" placement="bottom-right" triggers="manual" (hidden)="closePop(p1)"
+        popoverClass="user-menu" [ngClass]="{'is-open' : p1.isOpen()}" class="line-height1 cursor-pointer d-flex h-100">
+
+        <div>
+          <div class="user d-flex align-items-center justify-content-center font-size-14 color-white">
+            {{userDetails?.firstname?.substring(0,1)}} {{userDetails?.lastname?.substring(0,1)}}
+          </div>
+        </div>
+      </div>
+      <ng-template #popContent>
+
+        <div class="d-flex">
+          <div class="col-12 w-100 p-2">
+            <div class="font-size-14 color-white  gilroy-light pt-1">WELCOME
+            </div>
+            <div class="font-size-16 color-white gilroy-bold pb-1">{{userDetails?.firstname}} {{userDetails?.lastname}}
+            </div>
+            <!-- <div (click)="logout()" class="cursor-pointer d-flex align-items-center pt-3" style="position: relative;z-index: 3;">
+              <i class="fa-duotone fa-solid fa-left-from-bracket color-white font-size-20"></i>
+              <div class="color-white gilroy-bold ps-2 font-size-16">Logout</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="main-card">
+          <div class="d-flex flex-column col-12 h-100 position-relative">
+          </div>
+      </div>
+
+      </ng-template>
+    </div>
+
+
+
+  </div>
+</ng-template>
+
+
+<ng-template #modalTemplate let-modal>
+  <div class="modal-body px-5 py-4">
+    <div class="text-center Nunito color-white">
+      <div class="mt-3"><i class="fa-duotone fa-solid fa-triangle-exclamation font-size-40"></i></div>
+      <div class="pb-4 pt-4 MPLUS2 gradient-text font-size-20">Are you sure you want to continue with a new KYC process?</div>
+<div class="d-flex flex-column align-items-center">
+<div class="btn btn btn-grey-1 mb-4 font-size-16 DMSans px-4 mt-3 py-2" style="height:40px" (click)="agree();modal.dismiss();">Start New KYC</div>
+    <div class="btn btn-transparent color-grey-7 font-size-16 font-bold Nunito" (click)="modal.dismiss();">Cancel</div>    
+</div>
+</div>
+  </div>
+</ng-template>

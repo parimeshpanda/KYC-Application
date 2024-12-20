@@ -1,0 +1,1199 @@
+@import '../../../../assets/scss/variables.scss';
+@import '../../../../assets/scss/_buttons.scss';
+@import '../../../../assets/scss/_fonts.scss';
+@import '../../../../assets/scss/_colors.scss';
+@import '../../../../assets/scss/_custom.scss';
+
+.explanation-container {
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-image: url('../../../../assets/images/explanation-bg.png');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center;
+    .ciclegraph {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        .agent {
+            z-index: 1000;
+            transition: all .8s;
+        }
+        
+        .collapse-agent {
+            z-index: 1;
+            height: 0px;
+            margin-top: 12px;
+            transform: scale(.3);
+        }
+    }
+
+    .ciclegraph .level1 {
+        position: absolute;
+        left: 50% !important;
+        top: 44%;
+        width: 200px;
+        height: 80px;
+        z-index: 1;
+        transition: transform 2s;
+    }
+
+    .line-container {
+        position: relative;
+        margin-top: -65px;
+        transition: height 1s,
+        width 1s;
+    }
+
+    .slideDiv {
+        position: absolute;
+        z-index: 1;
+        animation: mymove 5s infinite;
+    }
+
+    @keyframes mymove {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: 150px;
+        }
+    }
+    .slimLine{
+        margin-bottom: -50px;
+        margin-top: 35px;
+        transform: scale(.4);
+    }
+    .slimLine1{
+        margin-bottom: -50px;
+        margin-top: -94px;
+        transform: scale(.4);
+    }
+    .ciclegraph {
+        .demographic-style {
+            transition: transform 2s;
+            transform: translate(-421px, -150px);
+        }
+
+        .customer-style {
+            transition: transform 2s;
+            transform: translate(163px, -150px);
+        }
+
+        .financial-style {
+            transition: transform 2s;
+            transform: translate(-477px, 0px);
+        }
+
+        .doc-style {
+            transition: transform 2s;
+            transform: translate(215px, 0px);
+        }
+    }
+
+    .expand-box {
+        position: relative;
+        border: 1px solid #36363E;
+        border-radius: 30px;
+        text-align: left;
+        padding: 12px;
+        z-index: 999;
+        .conv-zoom {
+            background: url("../../../../assets/images/Conv_BG.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            color: $white;
+            border: 1px solid #292A36;
+
+            .sub-title {
+                color: #747474;
+                font-weight: 400;
+                font-size: $size-12;
+            }
+
+            .detail-list {
+                min-width: 250px;
+                max-width: 285px;
+                height: 206px;
+                overflow:auto;
+                padding: 12px 16px;
+                font-size: $size-12;
+                background-color: #1D1D20;
+                border-radius: 10px;
+                line-height: 20px;
+                &::-webkit-scrollbar-track {
+                    border-radius: 0px;
+                    background: transparent;
+                  }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 3px;
+                    background: transparent;
+                }
+                &:hover{
+                    &::-webkit-scrollbar-thumb {
+                        border-radius: 3px;
+                        background: linear-gradient(90deg, #FE1F4B 0%, #FE742A 100%) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .conversation-style {
+        z-index: 10;
+        width: 300px;
+        height: 150px;
+        margin-top: -12px;
+        margin-bottom: 4%;
+        transition: height 1s,
+        width 1s;
+    }
+    .bigCard {
+        z-index: 10;
+        height: 350px;
+        width: 600px;
+        margin-bottom: 0% !important;
+    }
+    .smallCard{
+        z-index: 10;
+        width: 300px;
+        height: 150px;
+    }
+
+    .document-collector{
+        z-index: 10;
+        width: 320px;
+        height: 150px;
+        margin-top: -12px;
+        margin-bottom: 4%;
+        transition: height 1s,
+        width 1s;
+    }
+    .bigCard1 {
+        height: 350px;
+        width: 600px;
+        margin-bottom: 0% !important;
+    }
+    .right-dbSlideDiv {
+        position: absolute;
+        right: -30%;
+        top: 37%;
+
+        .dbSlideDiv {
+            position: absolute;
+            height: 1px;
+            width: 93px;
+            margin-top: 22%;
+            left: -93%;
+            top: 25%;
+            background: #292A36;
+
+            .content {
+                color: #696C90;
+                font-size: $size-10;
+                position: relative;
+                padding-top: 8px;
+                padding-left: 16px;
+                text-align: center;
+            }
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove2 2s infinite;
+            }
+
+            @keyframes mymove2 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 90px;
+                }
+            }
+        }
+    }
+    .right-dbSlideDiv1{
+        position: absolute;
+        right: -125%;
+        top: 20%;
+        .dbSlideDiv {
+            position: absolute;
+            width: 286px;
+            left: -286px;
+            top: 25%;
+            top: 25%;
+            background: #292A36;
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove3 2s infinite;
+            }
+
+            @keyframes mymove3 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 278px;
+                }
+            }
+        }
+    }
+    .right-azureDiv{
+        position: absolute;
+        right: -106%;
+        top: 40%;
+
+        .encript-algo{
+            position: absolute;
+            right: 74%;
+            top: -35%;
+        }
+        .decrypt-algo{
+            position: absolute;
+            right: 79%;
+            top: -35%;
+        }
+        .azureSlideDiv1 {
+            position: absolute;
+            height: 1px;
+            width: 48px;
+            margin-top: 22%;
+            right: 100%;
+            top: -28%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove4 2s infinite;
+            }
+
+            @keyframes mymove4 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 40px;
+                }
+            }
+        }
+        .azureSlideDiv2 {
+            position: absolute;
+            height: 1px;
+            width: 120px;
+            margin-top: 22%;
+            right: 68%;
+            top: -28%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove5 2s infinite;
+            }
+
+            @keyframes mymove5 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 116px;
+                }
+            }
+        }
+        .azureSlideDiv3 {
+            position: absolute;
+            height: 1px;
+            width: 276px;
+            right: 62%;
+            top: 35%;
+            background: #292A36;
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove6 2s infinite;
+            }
+
+            @keyframes mymove6 {
+                from {
+                    left: 260px;
+                }
+
+                to {
+                    left: 0px;
+                }
+            }
+        }
+        .azureSlideDiv4 {
+            position: absolute;
+            height: 1px;
+            width: 68px;
+            margin-top: 22%;
+            right: 59%;
+            top: 14%;
+            background: #292A36;
+
+           .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove7 2s infinite;
+            }
+
+            @keyframes mymove7 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 60px;
+                }
+            }
+        }
+        .azureSlideDiv5 {
+            position: absolute;
+            height: 51px;
+            width: 1px;
+            margin-top: 22%;
+            right: 62%;
+            top: -17.5%;
+            background: #292A36;
+
+           .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                margin-left: -2px;
+                animation: mymove8 2s infinite;
+            }
+
+            @keyframes mymove8 {
+                from {
+                    bottom: 38px;
+                }
+
+                to {
+                    bottom: 0px;
+                }
+            }
+        }
+        .azureSlideDiv6 {
+            position: absolute;
+            height: 110px;
+            width: 1px;
+            margin-top: 22%;
+            right: 59%;
+            top: -17.5%;
+            background: #292A36;
+
+           .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                margin-left: -2px;
+                animation: mymove9 2s infinite;
+            }
+
+            @keyframes mymove9 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 98px;
+                }
+            }
+        }
+        .azureSlideDiv7 {
+            position: absolute;
+            height: 341px;
+            width: 1px;
+            right: 77%;
+            top: -57%;
+            background: #292A36;
+
+           .circle-icon1 {
+                position: absolute;
+                margin-top: -2px;
+                margin-left: -2px;
+                animation: mymove10 2s infinite;
+            }
+            .circle-icon2 {
+                position: absolute;
+                margin-bottom: -2px;
+                margin-left: -2px;
+                animation: mymove11 2s infinite;
+            }
+            @keyframes mymove10 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 331px;
+                }
+            }
+            @keyframes mymove11 {
+                from {
+                    top: 0px;
+                }
+
+                to {
+                    top: 337px;
+                }
+            }
+        }
+        
+        .azureSlideDiv8 {
+            position: absolute;
+            height: 1px;
+            width: 42px;
+            margin-top: 22%;
+            right: 62%;
+            top: -109%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove29 2s infinite;
+            }
+
+            @keyframes mymove29 {
+                from {
+                    right: 0px;
+                }
+
+                to {
+                    right: 35px;
+                }
+            }
+        }
+        .azureSlideDiv9 {
+            position: absolute;
+            height: 247px;
+            width: 1px;
+            margin-top: 21%;
+            right: 62%;
+            top: -107%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                margin-left: -2px;
+                animation: mymove30 2s infinite;
+            }
+
+            @keyframes mymove30 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 232px;
+                }
+            }
+        }
+    }
+
+    .kyc-validation-container{
+        z-index: 10;
+        transition: all .8s;
+        transform: scale(.5);
+        margin-top: -100px;
+        .kyc-content{
+            position: absolute;
+            top: 95px;
+            width: 230px;
+            left: 17%;
+            .kyc-title{
+                font-size: $size-12;
+                font-weight: $bold;
+                color: #CFD1E0;
+            }
+            .kyc-sub-title{
+                font-size: $size-10;
+                font-weight: $normal;
+                color: #CFD1E0;
+            }
+        }
+        .guidelines-veri-agent{
+            position: absolute;
+            width: 290px;
+            height: 162px;
+            padding: 16px 20px;
+            border-Radius: 10px;
+            border: 1px solid #292A36;
+            background-color: #101114;
+            text-align: left;
+            left: -375px;
+            bottom: -90px;
+        }
+        .region-cards{
+            position: absolute;
+            text-align: left;
+            left: -323px;
+            bottom: 120px;
+        }
+        .regionSlideDiv{
+            position: absolute;
+            position: absolute;
+            height: 85px;
+            width: 1px;
+            left: -64%;
+            top: 60%;
+            background: linear-gradient(to right, #0D0D0E, #353746);
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2.4px;
+                animation: mymove12 2s infinite;
+            }
+
+            @keyframes mymove12 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 75px;
+                }
+            }
+            .circle-icon-2 {
+                position: absolute;
+                margin-left: -2.4px;
+                animation: mymove28 2s infinite;
+            }
+
+            @keyframes mymove28 {
+                from {
+                    top: 0px;
+                }
+
+                to {
+                    top: 70px;
+                }
+            }
+        }
+        .guidelinesSlideDiv{
+            position: absolute;
+            height: 1px;
+            width: 197px;
+            left: -23.5%;
+            top: 105%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove13 2s infinite;
+            }
+
+            @keyframes mymove13 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 190px;
+                }
+            }
+        }
+        .guidelinesSlideDiv1{
+            position: absolute;
+            height: 85px;
+            width: 1px;
+            left: 30.5%;
+            top: 81%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2.4px;
+                animation: mymove14 2s infinite;
+            }
+
+            @keyframes mymove14 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 74px;
+                }
+            }
+        }
+
+        .comparatorSlideDiv{
+            position: absolute;
+            height: 1px;
+            width: 194px;
+            right: -23%;
+            top: 105%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2px;
+                animation: mymove15 2s infinite;
+            }
+
+            @keyframes mymove15 {
+                from {
+                    right: 0px;
+                }
+
+                to {
+                    right: 186px;
+                }
+            }
+        }
+        .comparatorSlideDiv1{
+            position: absolute;
+            height: 85px;
+            width: 1px;
+            right: 30.5%;
+            top: 81%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2px;
+                animation: mymove16 2s infinite;
+            }
+
+            @keyframes mymove16 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 74px;
+                }
+            }
+        }
+        .comparator-agent{
+            position: absolute;
+            width: 290px;
+            height: 146px;
+            padding: 16px 20px;
+            border-Radius: 10px;
+            border: 1px solid #292A36;
+            background-color: #101114;
+            text-align: left;
+            right: -373px;
+            bottom: -90px;
+        }
+        .decription-algo{
+            position: absolute;
+            right: -82%;
+            top: -5%;
+            z-index: 1;
+        }
+        .postgress-sql{
+            position: absolute;
+            right: -74%;
+            top: -32%;
+        }
+        .postgressSlideDiv1{
+            position: absolute;
+            height: 66px;
+            width: 1px;
+            right: -58%;
+            top: -10%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2.5px;
+                animation: mymove17 2s infinite;
+            }
+
+            @keyframes mymove17 {
+                from {
+                    top: 0px;
+                }
+
+                to {
+                    top: 58px;
+                }
+            }
+        }
+        .postgressSlideDiv2{
+            position: absolute;
+            height:66px;
+            width: 1px;
+            right: -67%;
+            top: -10%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -3px;
+                animation: mymove18 2s infinite;
+            }
+
+            @keyframes mymove18 {
+                from {
+                    top: 0px;
+                }
+
+                to {
+                    top: 58px;
+                }
+            }
+        }
+        .postgressSlideDiv3{
+            position: absolute;
+            height: 1px;
+            width: 108px;
+            right: -58%;
+            top: 8.5%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2.4px;
+                animation: mymove19 2s infinite;
+            }
+
+            @keyframes mymove19 {
+                from {
+                    right: 0px;
+                }
+
+                to {
+                    right: 100px;
+                }
+            }
+        }
+        .postgressSlideDiv4{
+            position: absolute;
+            height: 1px;
+            width: 108px;
+            right: -96.5%;
+            top: 8.5%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2.4px;
+                animation: mymove20 2s infinite;
+            }
+
+            @keyframes mymove20 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 100px;
+                }
+            }
+        }
+        .postgressSlideDiv5{
+            position: absolute;
+            height: 58px;
+            width: 1px;
+            right: -28.5%;
+            top: 8.5%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2.4px;
+                animation: mymove21 2s infinite;
+            }
+
+            @keyframes mymove21 {
+                from {
+                    top: 0px;
+                }
+
+                to {
+                    top: 50px;
+                }
+            }
+        }
+        .postgressSlideDiv6{
+            position: absolute;
+            height: 58px;
+            width: 1px;
+            right: -96.5%;
+            top: 8.5%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -3px;
+                animation: mymove22 2s infinite;
+            }
+
+            @keyframes mymove22 {
+                from {
+                    top: 0px;
+                }
+
+                to {
+                    top: 50px;
+                }
+            }
+        }
+        .t1-doc-info{
+            position: absolute;
+            right: -52%;
+            top: 25%;
+        }
+        .t1-user-info{
+            position: absolute;
+            right: -120%;
+            top: 25%;
+        }
+        
+        .t1-infoSlideDiv1{
+            position: absolute;
+            height: 38px;
+            width: 1px;
+            right: -27.5%;
+            top: 56.5%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2.4px;
+                animation: mymove23 2s infinite;
+            }
+
+            @keyframes mymove23 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 27px;
+                }
+            }
+        }
+        .t1-infoSlideDiv2{
+            position: absolute;
+            height: 40px;
+            width: 1px;
+            right: -96.5%;
+            top: 56%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -2.4px;
+                animation: mymove24 2s infinite;
+            }
+
+            @keyframes mymove24 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 30px;
+                }
+            }
+        }
+        .t1-infoSlideDiv3{
+            position: absolute;
+            height: 60px;
+            width: 1px;
+            right: -62.5%;
+            top: 67%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-left: -3px;
+                animation: mymove25 2s infinite;
+            }
+
+            @keyframes mymove25 {
+                from {
+                    bottom: 0px;
+                }
+
+                to {
+                    bottom: 48px;
+                }
+            }
+        }
+        .t1-infoSlideDiv4{
+            position: absolute;
+            height: 1px;
+            width: 153px;
+            right: -69.5%;
+            top: 67%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2.3px;
+                animation: mymove26 2s infinite;
+            }
+
+            @keyframes mymove26 {
+                from {
+                    right: 0px;
+                }
+
+                to {
+                    right: 147px;
+                }
+            }
+        }
+        .t1-infoSlideDiv5{
+            position: absolute;
+            height: 1px;
+            width: 123px;
+            right: -96.5%;
+            top: 67%;
+            background: #292A36;
+
+            .circle-icon {
+                position: absolute;
+                margin-top: -2.3px;
+                animation: mymove27 2s infinite;
+            }
+
+            @keyframes mymove27 {
+                from {
+                    left: 0px;
+                }
+
+                to {
+                    left: 115px;
+                }
+            }
+        }
+    }
+
+    .kycValidationBigCircle{ 
+        padding-top: 33px;
+        transition: all .8s;
+        transform: scale(1);
+    }
+    .slimLine2{
+        position: relative !important;
+        top: -73px;
+        transform: scale(.7);
+    }
+    .kyc-verified-agent{
+        z-index: 10;
+        transition: all .8s;
+        margin-top: -105px;
+        margin-right: 1%;
+        transform: scale(.6);
+        .gif-success{
+            position: absolute;
+            top: 34%;
+            left: 46%;
+            width: 38%;
+            height: 38%;
+        }
+        .gif-fail{
+            position: absolute;
+            top: 44%;
+            left: 56%;
+            width: 60px;
+            height: 60px;
+        }
+    }
+    .kycVerifiedAgentBigCircle{
+        transition: all .8s;
+        margin-top: -17%;
+        transform: scale(1);
+    }
+    .kyc-verified-msg{
+        position: relative !important;
+        margin-top: -5%;
+        z-index: 10;
+    }
+    .btn-container {
+        position: absolute !important;
+        bottom: 15% !important;
+        right: 28px;
+        z-index: 999;
+    }
+}
+
+::ng-deep .modal-backdrop.show {
+    background: linear-gradient(to bottom, #6a6767 0%, #928e8e  100%) !important;
+  
+  }
+::ng-deep .kycValidationClass {
+
+   .modal-content {
+        background: #13151AF2;
+        border-radius: 10px;
+        border: 1px solid $color-grey-13;
+        width: 600px !important;
+        margin-left: 12% !important;
+        text-align: left;
+        .modal-header {
+            padding: 20px 32px 0px 32px !important;
+            border-bottom: 0px !important;
+            .close{
+              outline: none !important;
+              color: $color-grey-12;
+              background: transparent !important;
+              outline: none !important;
+              border: none !important;
+              &:hover {
+                outline: none !important;
+                border: none !important;
+              }
+            }
+            .btn-close:after {
+              content: "";
+            }
+        }
+        .modal-body{
+            padding: 0px 32px 20px 32px !important;
+        }
+        .modal-text{
+          font-weight: $regular;
+          font-size: $size-12;
+          text-align: left;
+          color: $color-grey-10;
+          white-space: pre-wrap;
+        }
+    }
+  }
+  ::ng-deep .comparatorAgentClass{
+    .modal-content {
+        background: #13151AF2;
+        border-radius: 10px;
+        border: 1px solid $color-grey-13;
+        padding: 0px !important;
+        width: 560px !important;
+        margin-left: 12% !important;
+        .modal-header {
+            padding: 12px 32px 12px 32px !important;
+            border-bottom: 0px !important;
+            .close{
+              outline: none !important;
+              color: $color-grey-12;
+              background: transparent !important;
+              outline: none !important;
+              border: none !important;
+              &:hover {
+                outline: none !important;
+                border: none !important;
+              }
+            }
+            .btn-close:after {
+              content: "";
+            }
+        }
+    }
+    table thead tr td{
+        background-color: #25252A !important;
+        padding: 8px 20px;
+        color: $color-grey-10;
+        font-weight: $regular;
+        font-size: $size-12;
+    }
+    tr td:first-child{
+        padding: 8px 8px 8px 30px;
+    }
+    table tbody tr td{
+        padding: 8px 20px;
+        font-size: $size-12;
+        font-weight: $regular;
+    }
+  }
+
+  .modal-body{
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    &::-webkit-scrollbar-track {
+        border-radius: 0px;
+        background: transparent;
+      }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: transparent;
+    }
+    &:hover{
+        &::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background: linear-gradient(90deg, #FE1F4B 0%, #FE742A 100%) !important;
+        }
+    }
+  }
+
+    .process {
+      --uib-size: 40px;
+      --uib-color: white;
+      --uib-speed: 1.75s;
+      position: relative;
+      height: var(--uib-size);
+      width: var(--uib-size);
+    }
+   
+    .process::before,
+    .process::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background-color: var(--uib-color);
+      animation: pulse var(--uib-speed) ease-in-out infinite;
+      transform: scale(0);
+      transition: background-color 0.3s ease;
+    }
+   
+    .process::after {
+      animation-delay: calc(var(--uib-speed) / -2);
+    }
+   
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 0.25;
+      }
+    }
+  
+    ::ng-deep p {
+        margin-top: 0;
+        margin-block-start: 0em;
+        margin-bottom: 0rem !important;
+      }
+      ::ng-deep ol {
+          line-height: 1.4;
+          margin-block-start: 0em;
+          margin-bottom: 0em;
+          padding-left: 13px;
+          list-style-type: disc;
+      }
+      ::ng-deep li::marker {
+        color: #BB4848;
+      }

@@ -1,0 +1,399 @@
+<div class="d-fex flex-column h-100 explanation-container px-5 pt-4" style="margin-top:70px">
+    <div class="color-white font-size-20"><span (click)="backToPastRecord()" class="cursor-pointer"><i class="fa-regular fa-arrow-left me-2"></i> Explanation</span></div>
+    <div class="d-flex flex-grow-1 h-100 w-100 mt-1">
+        <div class="col-2"></div>
+        <div class="col-8 position-relative">
+            <div class="d-flex align-items-center justify-content-center h-100 position-relative">
+                <div class="col-12 text-center">
+                    <!-- level one and two card and agent details -->
+                    <div class="ciclegraph" *ngIf="isNextVal < 2">
+                        <!-- agent circle -->
+                        <div class="agent" [ngClass]="isNextVal == 1 ? 'collapse-agent':''">
+                            <img class="" src="{{baseurl}}assets/images/user.svg" alt="agent" />
+                        </div>
+                        <!-- four cards details -->
+                        <div class="level1 demographic-style" *ngIf="!isClickedNext">
+                            <img class="img-reponsive" src="{{baseurl}}assets/images/kyc-initiation.svg"
+                                alt="agent" />
+                        </div>
+                        <div class="level1 customer-style" *ngIf="!isClickedNext">
+                            <img class="img-reponsive" src="{{baseurl}}assets/images/customer-info.svg" alt="agent" />
+                        </div>
+                        <div class="level1 financial-style" *ngIf="!isClickedNext">
+                            <img class="img-reponsive" src="{{baseurl}}assets/images/financial-info.svg" alt="agent" />
+                        </div>
+                        <div class="level1 doc-style" *ngIf="!isClickedNext">
+                            <img class="img-reponsive" src="{{baseurl}}assets/images/doc-info.svg" alt="agent" />
+                        </div>
+                    </div>
+                    <!-- Conversation details line  -->
+                    <div *ngIf="isNextVal < 2"
+                        class="d-flex justify-content-center line-container position-relative text-center"
+                        [ngClass]="{'slimLine' :  isNextVal == 1}">
+                        <div class="position-relative z-1">
+                            <img src="{{baseurl}}assets/images/Line-gradient.svg" alt="agent" />
+                            <div class="slideDiv">
+                                <img src="{{baseurl}}assets/images/red-line.svg" alt="agent" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Conversation details container  -->
+                    <div *ngIf="isNextVal <= 2"
+                        class="d-flex justify-content-center position-relative animate__animated animate__fadeIn animated__slower"
+                        style="margin-top: -1px;z-index: 10;">
+                        <div class="expand-box conversation-style position-relative"
+                            [ngClass]="{'bigCard' :  isNextVal == 1,'smallCard' :  isNextVal == 2}">
+                            <div class="d-flex justify-content-start conv-zoom">
+                                <div class=""><i class="fa-solid fa-comments color-blue-1 font-size-26 pt-2"></i></div>
+                                <div class="ps-3">
+                                    <div class="text-start font-size-16">Conversation Agent</div>
+                                    <div class="sub-title font-size-8">Understand and Summarize the demographic and
+                                        customer information</div>
+
+                                    <div *ngIf="isNextVal == 1"
+                                        class="detail-list mt-3 animate__animated animate__fadeIn animated__slower">
+                                        <table>
+                                            <tr class="" *ngFor="let item of agentDetails | keyvalue">
+                                                <td class="pe-3">
+                                                    <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2"></i>
+                                                </td>
+                                                <td style="color: #69697C;">{{ item.key }}</td>
+                                                <td class="ps-3" style="color: #A9A9C6;">{{ item.value }}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="isNextVal > 0 && isNextVal < 3" class="d-flex justify-content-start right-dbSlideDiv 
+                                        animate__animated animate__fadeIn animated__slower"
+                                [ngClass]="{'right-dbSlideDiv1' :  isNextVal == 2}">
+                                <img class="" src="{{baseurl}}assets/images/database.svg" alt="agent" />
+                                <div class="dbSlideDiv">
+                                    <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                    <div class="content" *ngIf="isNextVal !== 2">Store <br>required Info</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- document details Line -->
+                    <div *ngIf="(isNextVal > 0 && isNextVal < 3)"
+                        class="d-flex justify-content-center line-container position-relative text-center "
+                        [ngClass]="{'slimLine1' :  isNextVal == 2}">
+                        <div class="position-relative z-1">
+                            <img src="{{baseurl}}assets/images/Line-gradient.svg" alt="agent" />
+                            <div class="slideDiv">
+                                <img src="{{baseurl}}assets/images/red-line.svg" alt="agent" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- document details container  -->
+                    <div *ngIf="isNextVal > 0 && isNextVal < 4" class="d-flex justify-content-center"
+                        style="margin-top: -1px;z-index: 10;">
+                        <div class="expand-box document-collector animate__animated animate__fadeIn animated__slower"
+                            [ngClass]="{'bigCard1' :  isNextVal == 2}">
+                            <div class="d-flex justify-content-start conv-zoom">
+                                <div class=""><i class="fa-solid fa-file color-red-3 font-size-26 pt-2"></i></div>
+                                <div class="ps-3">
+                                    <div class="font-size-16">Document Collector Agent</div>
+                                    <div class="sub-title">Request and collect relevant proof of identity documents and
+                                        consolidate the
+                                        information present in the document</div>
+
+                                    <div *ngIf="isNextVal == 2"
+                                        class="detail-list mt-3 animate__animated animate__fadeIn animated__slower">
+                                        <table *ngIf="docCollDetails && Object.keys(docCollDetails).length > 0">
+                                            <tr class="" *ngFor="let item of docCollDetails | keyvalue">
+                                                <td class="pe-3"><i
+                                                        class="fa-solid fa-circle color-red-2 font-size-6 pb-2"></i>
+                                                </td>
+                                                <td style="color: #69697C;">{{ item.key }}</td>
+                                                <td class="ps-3" style="color: #A9A9C6;">{{ item.value }}</td>
+                                            </tr>
+                                        </table>
+                                        <div class="d-flex h-100 justify-content-center align-items-center" *ngIf="!docCollDetails || Object.keys(docCollDetails).length === 0"> No data Available</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="isNextVal ==2" class="d-flex justify-content-start flex-column w-100 h-100 right-azureDiv 
+                                animate__animated animate__fadeIn animated__slower"
+                                [ngClass]="{'right-azureDiv1' :  isNextVal == 2}">
+
+                                <div>
+                                    <img class="me-5" src="{{baseurl}}assets/images/storage-container.svg" alt="agent" />
+                                    <img class="ms-5 ps-4" src="{{baseurl}}assets/images/ocr-tool.svg" alt="agent" />
+                                    <div class="azureSlideDiv1">
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                    </div>
+                                </div>
+                                <img class="ms-5 ps-4 encript-algo"
+                                    src="{{baseurl}}assets/images/encryption-algorithm.svg" alt="agent" />
+                                    <img class="ms-5 ps-4 decrypt-algo"
+                                    src="{{baseurl}}assets/images/decryption-algorithm.svg" alt="agent" />
+                                <div class="azureSlideDiv2">
+                                    <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                </div>
+                                <div>
+                                    <div class="azureSlideDiv3">
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                        <div class="content" *ngIf="isNextVal !== 2">Store <br>required Info</div>
+                                    </div>
+                                    <div class="azureSlideDiv5">
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                    </div>
+                                    <img class="mt-5 pt-4 ms-5 ps-5" src="{{baseurl}}assets/images/db.svg"
+                                        alt="agent" />
+                                    <div class="azureSlideDiv7">
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon1"></i>
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon2"></i>
+                                    </div>
+                                    <div class="azureSlideDiv8">
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                    </div>
+                                    <div class="azureSlideDiv9">
+                                        <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- kyc-KYC_Validation-line -->
+                    <div *ngIf="isNextVal > 1 && isNextVal < 4"
+                        class="d-flex justify-content-center line-container position-relative text-center"
+                        [ngClass]="{'slimLine1' :  isNextVal == 3}">
+                        <div class="position-relative z-1">
+                            <img src="{{baseurl}}assets/images/Line-gradient.svg" alt="agent" />
+                            <div class="slideDiv">
+                                <img src="{{baseurl}}assets/images/red-line.svg" alt="agent" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- kyc KYC_Validation circle -->
+                    <div *ngIf="isNextVal > 1"
+                        class="d-flex justify-content-center position-relative text-center kyc-validation-container"
+                        [ngClass]="{'kycValidationBigCircle': isNextVal == 3}">
+                        <div class="position-relative">
+                            <img src="{{baseurl}}assets/images/KYC_Validation.svg" alt="agent" />
+                            <div class="kyc-content">
+                                <div class="mb-3 d-flex justify-content-center">
+                                    <div class="process"></div>
+                                </div>
+                                <div class="kyc-title">KYC Validation Agent</div>
+                                <div class="kyc-sub-title">Decides if KYC is Pass/Fail based<br> on two sequential tasks
+                                    <br>performed by two agents
+                                </div>
+                                <div (click)="kycValidationInfo(kycValidation)"
+                                    class="color-blue-2 font-size-10 font-bold pt-3"><span class=" cursor-pointer">More
+                                        Info
+                                        <i class="fa-regular fa-arrow-up-right ms-2"></i></span></div>
+                            </div>
+
+                            <!-- left content of guideline -->
+                            <div class="region-cards" *ngIf="isNextVal == 3">
+                                <img src="{{baseurl}}assets/images/region-specific.svg" alt="agent" />
+                            </div>
+                            <div class="regionSlideDiv" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon-2"></i>
+                            </div>
+                            <div class="guidelines-veri-agent" *ngIf="isNextVal == 3">
+                                <div class="d-flex justify-content-start">
+                                    <div class="mb-3"><i class="fa-solid fa-ballot-check color-green-1 me-2"></i></div>
+                                    <div class="">
+                                        <div class="font-size-14 color-grey-11 font-bold">Guidelines Verifier Agent
+                                        </div>
+                                            <div class="font-size-12 color-grey-11 mt-2">Extract the region-specific KYC guidelines and varify if all information have been received from the user according to region-specific KYC guidellines  </div>
+                                        <div (click)="guidelinesAgentInfo(guidelinesAgent)"
+                                            class="color-blue-2 font-size-10 font-bold pt-3"><span
+                                                class=" cursor-pointer">More Info
+                                                <i class="fa-regular fa-arrow-up-right ms-2"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="guidelinesSlideDiv" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="guidelinesSlideDiv1" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <!-- right content of comparator -->
+                            <div class="comparatorSlideDiv" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="comparatorSlideDiv1" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="postgress-sql" *ngIf="isNextVal == 3">
+                                <img src="{{baseurl}}assets/images/db.svg" alt="agent" />
+                            </div>
+                            <div class="decription-algo" *ngIf="isNextVal == 3">
+                                <img src="{{baseurl}}assets/images/decription-algo.svg" alt="agent" />
+                            </div>
+                            <div class="postgressSlideDiv1" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="postgressSlideDiv2" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="postgressSlideDiv3" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="postgressSlideDiv4" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="postgressSlideDiv5" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="postgressSlideDiv6" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="t1-doc-info" *ngIf="isNextVal == 3">
+                                <img src="{{baseurl}}assets/images/doc-information.svg" alt="agent" />
+                            </div>
+                            <div class="t1-infoSlideDiv1" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="t1-infoSlideDiv2" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="t1-infoSlideDiv3" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="t1-user-info" *ngIf="isNextVal == 3">
+                                <img src="{{baseurl}}assets/images/user-information.svg" alt="agent" />
+                            </div>
+
+                            <div class="t1-infoSlideDiv4" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+                            <div class="t1-infoSlideDiv5" *ngIf="isNextVal == 3">
+                                <i class="fa-solid fa-circle color-red-2 font-size-6 pb-2 circle-icon"></i>
+                            </div>
+
+                            <div class="comparator-agent" *ngIf="isNextVal == 3">
+                                <div class="d-flex justify-content-start">
+                                    <div class="mb-3"><i class="fa-solid fa-code-compare color-blue-3 me-2"></i></div>
+                                    <div class="">
+                                        <div class="font-size-14 color-grey-11 font-bold">Comparator Agent</div>
+                                        <div class="font-size-12 color-grey-11 mt-2">Compare the proof of identity
+                                            information provided by user vs the information present in the uploaded
+                                            document(s)</div>
+                                        <div (click)="comparatorAgentInfo(comparatorAgent)"
+                                            class="color-blue-2 font-size-10 font-bold pt-3"><span
+                                                class=" cursor-pointer">More Info
+                                                <i class="fa-regular fa-arrow-up-right ms-2"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- kyc-line -->
+                    <div *ngIf="isNextVal > 2" [ngClass]="{'slimLine2' :  isNextVal == 4}"
+                        class="d-flex justify-content-center line-container position-relative text-center">
+                        <div class="position-relative z-1">
+                            <img src="{{baseurl}}assets/images/Line-gradient.svg" alt="agent" />
+                            <div class="slideDiv">
+                                <img src="{{baseurl}}assets/images/red-line.svg" alt="agent" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- kyc agent circle -->
+                    <div *ngIf="isNextVal > 2" [ngClass]="{'kycVerifiedAgentBigCircle':isNextVal == 4}"
+                        class="d-flex justify-content-center kyc-verified-agent position-relative text-center">
+                        <div class="position-relative">
+                            <img src="{{baseurl}}assets/images/verified-kyc.svg" alt="agent" />
+                            <img *ngIf="isNextVal == 4 && isKYCSuccess" class="gif-success" src="{{baseurl}}assets/images/success-kyc.gif" alt="agent" />
+                            <img *ngIf="isNextVal == 4 && !isKYCSuccess" class="gif-fail" src="{{baseurl}}assets/images/fail-kyc.gif" alt="agent" />
+                        </div>
+                    </div>
+                    <div *ngIf="isNextVal == 4"
+                        class="d-flex justify-content-center kyc-verified-msg position-relative text-center">
+                        <div class="position-relative">
+                            <img *ngIf="isNextVal == 4 && isKYCSuccess" src="{{baseurl}}assets/images/successful-kyc.svg" alt="agent" />
+                            <img *ngIf="isNextVal == 4 && !isKYCSuccess" src="{{baseurl}}assets/images/unsuccessful-kyc.svg" alt="agent" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-2">
+        </div>
+
+    </div>
+    <div class="d-flex align-items-end justify-content-end btn-container position-absolute">
+        <button [disabled]="isNextVal == 0" type="button" class="btn btn-black me-3" (click)="reset()">
+            <i class="fa-solid fa-rotate-right me-1"></i> Reset</button>
+        <button [disabled]="isNextVal > 3" type="button" class="btn btn-black me-3" (click)="next(isNextVal)">Next <i
+                class="fa-regular fa-arrow-right ms-1"></i></button>
+    </div>
+</div>
+
+<!-- more info modals -->
+<ng-template #kycValidation let-modal>
+    <div class="modal-header d-flex justify-content-between p-0">
+        <h4 class="modal-title font-size-14 bold color-grey-11" id="modal-basic-title">KYC Validation Agent</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <i class="fa-solid fa-xmark color-grey-12 font-size-20"></i>
+        </button>
+    </div>
+    <div class="modal-body p-0">
+        <div class="text-center Nunito color-white text-start">
+            <div class="modal-text mt-3">Decides if the KYC Process is Pass or Fail based on 2 sequential tasks performed
+                by 2 agents- Comparator and Guidelines Verifier Agent</div>
+                <div class="modal-text mt-3" style="font-weight: bold;">Explanation:</div>
+                <div class="modal-text mt-2">
+                    <markdown [data]="explaination"></markdown>
+                  </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #guidelinesAgent let-modal>
+    <div class="modal-header d-flex justify-content-between p-0">
+        <h4 class="modal-title font-size-14 bold color-grey-11" id="modal-basic-title">Guidelines Verifier Agent</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <i class="fa-solid fa-xmark color-grey-12 font-size-20"></i>
+        </button>
+    </div>
+    <div class="modal-body mt-0 p-0">
+        <div class="text-center Nunito color-white text-start">
+                <div class="modal-text mt-3">Extract the region-specific KYC guidelines and varify if all information have been received from the user according to region-specific KYC guidellines</div>
+                <div class="modal-text mt-3">
+                    <markdown [data]="guidelineDetails"></markdown>
+                  </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #comparatorAgent let-modal>
+    <div class="modal-header d-flex justify-content-between ms-1 px-4 pt-3">
+        <h4 class="modal-title font-size-14 bold color-grey-11" id="modal-basic-title">Comparator Agent</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <i class="fa-solid fa-xmark color-grey-12 font-size-20"></i>
+        </button>
+    </div>
+    <div class="modal-body p-0 pb-3">
+        <div class="text-left Nunito color-white text-start comparatorAgent ">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Proof of Identity Information</td>
+                        <td>User Provided Information</td>
+                        <td>Document Provided Information</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let detail of comparatorAgentDetails">
+                        <td class=""><i class="fa-solid fa-circle color-red-2 font-size-6 me-2"></i></td>
+                        <td style="color: #69697C;">{{detail?.proofOfIdentity}}</td>
+                        <td style="color: #A9A9C6;">{{detail?.UserProvided}}</td>
+                        <td style="color: #A9A9C6;">{{detail?.PresentUploadedDocuments}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-template>
